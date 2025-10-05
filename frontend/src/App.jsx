@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Comp from "./components/Comp";
 import How from "./components/How";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 
 /* ========================
    Page Imports
@@ -24,6 +24,18 @@ import Sleep from "./pages/Sleep";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 
+/* ========================
+   Therapy Sub-page Imports
+======================== */
+import CBT from "./pages/therapy/cbt";
+import ACT from "./pages/therapy/act";
+import ArtTherapy from "./pages/therapy/art";
+import GroupTherapy from "./pages/therapy/group";
+import Mindfulness from "./pages/therapy/mindfulness";
+import MusicTherapy from "./pages/therapy/music";
+import PlayTherapy from "./pages/therapy/play";
+import Psychodynamic from "./pages/therapy/psychodynamic";
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -41,14 +53,27 @@ function App() {
           element={
             <>
               <Home />
-              <Comp isDarkMode={isDarkMode} /> 
-              <How isDarkMode={isDarkMode} /> 
+              <Comp isDarkMode={isDarkMode} />
+              <How isDarkMode={isDarkMode} />
               <Footer isDarkMode={isDarkMode} />
             </>
           }
         />
 
-        <Route path="/therapy" element={<Therapy />} />
+        {/* Main Therapy Page */}
+        <Route path="/therapy" element={<Therapy isDarkMode={isDarkMode} />} />
+
+        {/* Therapy Sub-pages with isDarkMode */}
+        <Route path="/therapy/cbt" element={<CBT isDarkMode={isDarkMode} />} />
+        <Route path="/therapy/act" element={<ACT isDarkMode={isDarkMode} />} />
+        <Route path="/therapy/art" element={<ArtTherapy isDarkMode={isDarkMode} />} />
+        <Route path="/therapy/group" element={<GroupTherapy isDarkMode={isDarkMode} />} />
+        <Route path="/therapy/mindfulness" element={<Mindfulness isDarkMode={isDarkMode} />} />
+        <Route path="/therapy/music" element={<MusicTherapy isDarkMode={isDarkMode} />} />
+        <Route path="/therapy/play" element={<PlayTherapy isDarkMode={isDarkMode} />} />
+        <Route path="/therapy/psychodynamic" element={<Psychodynamic isDarkMode={isDarkMode} />} />
+
+        {/* Other Pages */}
         <Route path="/counselling" element={<Counselling />} />
         <Route path="/self-care" element={<SelfCare />} />
         <Route path="/exercise" element={<Exercise />} />
